@@ -1,7 +1,7 @@
 import { IDoc } from "../../types";
 import { ClientType, LeadStatus } from "./enums";
 
-export interface ILead extends IDoc {
+export interface ILeadInputs extends IDoc {
   clientName: string;
   companyName?: string;
   email: string;

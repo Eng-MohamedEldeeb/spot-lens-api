@@ -1,28 +1,30 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "Spot Lens API is a project about booking a capturing sessions",
+  "description": "Captura production API is a project about booking a capturing sessions",
   "main": "./dist/index.js",
   "scripts": {
     "start:dev": "nodemon"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Eng-MohamedEldeeb/spot-lens-api.git"
+    "url": "git+https://github.com/Eng-MohamedEldeeb/captura-production-api.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/Eng-MohamedEldeeb/spot-lens-api/issues"
+    "url": "https://github.com/Eng-MohamedEldeeb/captura-production-api/issues"
   },
-  "homepage": "https://github.com/Eng-MohamedEldeeb/spot-lens-api#readme",
+  "homepage": "https://github.com/Eng-MohamedEldeeb/captura-production-api#readme",
   "devDependencies": {
     "@eslint/js": "^9.39.2",
     "@types/express": "^5.0.6",
+    "@types/joi": "^17.2.2",
     "@types/mongoose": "^5.11.96",
     "@types/node": "^25.0.3",
+    "@types/nodemailer": "^7.0.4",
     "@typescript-eslint/eslint-plugin": "^8.50.1",
     "@typescript-eslint/parser": "^8.50.1",
     "eslint": "^9.39.2",
@@ -36,6 +38,8 @@
   },
   "dependencies": {
     "express": "^5.2.1",
-    "mongoose": "^9.0.2"
+    "joi": "^18.0.2",
+    "mongoose": "^9.0.2",
+    "nodemailer": "^7.0.12"
   }
 }

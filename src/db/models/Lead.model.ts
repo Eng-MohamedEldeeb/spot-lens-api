@@ -1,9 +1,9 @@
 import { model, models, Schema } from "mongoose";
-import { ILead } from "./interface";
+import { ILeadInputs } from "./interface";
 import { ClientType, LeadStatus } from "./interface/enums";
 
 export class Lead {
-  private static readonly schema = new Schema<ILead>(
+  private static readonly schema = new Schema<ILeadInputs>(
     {
       clientName: {
         type: String,
@@ -22,7 +22,7 @@ export class Lead {
       clientType: {
         type: String,
         enum: ClientType,
-        default: ClientType.INDIVIDUAL,
+        required: [true, "clientType field is required"],
       },
       status: { type: String, enum: LeadStatus, default: LeadStatus.NEW },
       notes: { type: String },

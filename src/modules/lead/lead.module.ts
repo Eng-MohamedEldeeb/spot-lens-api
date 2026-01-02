@@ -2,8 +2,6 @@ import { Router } from "express";
 
 const router: Router = Router();
 
-router.get("/all", (req, res, next) => {
-  return res.json("done");
-});
+router.post("/book");
 
 export default router;
