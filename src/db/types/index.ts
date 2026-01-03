@@ -16,16 +16,16 @@ export type TDataBaseDocument<T> = DeepPartial<
 
 export type IFindOne<T> = {
   filter: QueryFilter<T>;
-  projection: ProjectionFields<T>;
-  options: QueryOptions<T>;
-  populate: PopulateOptions | PopulateOption;
+  projection?: ProjectionFields<T>;
+  options?: QueryOptions<T>;
+  populate?: PopulateOptions | PopulateOption;
 };
 
 export type IFindById<T> = {
   _id: Types.ObjectId;
-  projection: ProjectionFields<T>;
-  options: QueryOptions<T>;
-  populate: PopulateOptions | PopulateOption;
+  projection?: ProjectionFields<T>;
+  options?: QueryOptions<T>;
+  populate?: PopulateOptions | PopulateOption;
 };
 
 export interface IDoc {

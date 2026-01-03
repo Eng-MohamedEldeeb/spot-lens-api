@@ -12,7 +12,9 @@ class LeadController {
       const bookDto: IBook = req.body;
       return responseHandler.success(res, {
         status: 201,
-        msg: "done",
+        msg: "Your booking has been received successfully\
+              Our team will review the details and contact you shortly to confirm the session and next steps.\
+              Thank you for choosing us.",
         data: await this.leadService.book(bookDto),
       });
     },

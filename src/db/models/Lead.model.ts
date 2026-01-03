@@ -1,9 +1,11 @@
 import { model, models, Schema } from "mongoose";
-import { ILeadInputs } from "./interface";
-import { ClientType, LeadStatus } from "./interface/enums";
+import { ILead } from "./interfaces";
+import { ClientType, LeadStatus } from "./interfaces/enums";
+import emailService from "../../utils/email/email.service";
+import { EmailSchema } from "../../utils/email/schemas/emali.schemas";
 
 export class Lead {
-  private static readonly schema = new Schema<ILeadInputs>(
+  private static readonly schema = new Schema<ILead>(
     {
       clientName: {
         type: String,
@@ -30,6 +32,17 @@ export class Lead {
     { timestamps: true },
   );
 
+  private static readonly schemaFactory = () => {
+    this.schema.post("save", (doc: ILead) => {
+      return emailService.send({
+        to: doc.email,
+        subject: "Confirming Details",
+        from: `"${process.env.APP_NAME}" <${process.env.USER}>`,
+        html: EmailSchema.confirmLead(doc),
+      });
+    });
+    return this.schema;
+  };
   public static readonly Model =
-    models[this.name] ?? model(this.name, this.schema);
+    models[this.name] ?? model(this.name, this.schemaFactory());
 }

@@ -17,17 +17,17 @@ export abstract class DataBaseService<TDocument> {
     }
   };
 
-  private readonly create = async (data: TDataBaseDocument<TDocument>) => {
+  public readonly create = async (data: TDataBaseDocument<TDocument>) => {
     return await this.model.create(data);
   };
 
-  private readonly findOne = async (
+  public readonly findOne = async (
     query: IFindOne<TDocument>,
   ): Promise<TDocument | null> => {
     return await this.model.findOne(query);
   };
 
-  private readonly findById = async (
+  public readonly findById = async (
     query: IFindById<TDocument>,
   ): Promise<TDocument | null> => {
     return await this.model.findById(query);
