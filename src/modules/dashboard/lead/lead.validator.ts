@@ -16,13 +16,13 @@ class LeadValidator extends Validators {
 
   public readonly convertToClient = {
     params: joi.object<Pick<ICreateClient, "leadId">>().keys({
-      leadId: this.generalFields.leadId.required(),
+      leadId: this.generalFields.id.required(),
     }),
   };
 
   public readonly cancelRequest = {
     params: joi.object<ICancelLeadRequest>().keys({
-      leadId: this.generalFields.leadId.required(),
+      leadId: this.generalFields.id.required(),
     }),
   };
 }

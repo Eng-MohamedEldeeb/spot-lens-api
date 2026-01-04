@@ -11,6 +11,7 @@ class LeadValidator extends Validators {
       phone: this.generalFields.phone.required(),
       clientType: this.generalFields.clientType.required(),
       notes: this.generalFields.notes,
+      services: this.generalFields.service,
     }),
   };
 }

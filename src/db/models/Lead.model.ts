@@ -1,8 +1,8 @@
 import { model, models, Schema } from "mongoose";
-import { ILead } from "../interfaces";
-import { ClientType, LeadStatus } from "../interfaces/enums";
 import emailService from "../../utils/email/email.service";
+import { ILead } from "../interfaces";
 import { EmailSchema } from "../../utils/email/schemas/email.schemas";
+import { ClientType, LeadStatus, SessionServices } from "../interfaces/enums";
 
 export class Lead {
   private static readonly schema = new Schema<ILead>(
@@ -27,6 +27,13 @@ export class Lead {
         required: [true, "clientType field is required"],
       },
       status: { type: String, enum: LeadStatus, default: LeadStatus.NEW },
+      services: [
+        {
+          type: String,
+          enum: SessionServices,
+          required: [true, "services can't be empty"],
+        },
+      ],
       notes: { type: String },
     },
     { timestamps: true },

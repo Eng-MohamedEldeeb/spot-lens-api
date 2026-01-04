@@ -1,6 +1,10 @@
 import joi from "joi";
-import { ClientType, LeadStatus } from "../../db/interfaces/enums";
 import { Types } from "mongoose";
+import {
+  ClientType,
+  LeadStatus,
+  SessionServices,
+} from "../../db/interfaces/enums";
 
 export abstract class Validators {
   private readonly dbId = (v: string, helpers: joi.CustomHelpers) => {
@@ -25,9 +29,10 @@ export abstract class Validators {
     clientType: joi.valid(...Object.values(ClientType)).messages({
       "any.only": `clientType must be either [ ${ClientType.INDIVIDUAL} or ${ClientType.COMPANY} ]`,
     }),
-    status: joi.valid(LeadStatus).default(LeadStatus.NEW),
+    status: joi.valid(...Object.values(LeadStatus)).default(LeadStatus.NEW),
+    service: joi.array().allow(...Object.values(SessionServices)),
     notes: joi.string().optional().empty(""),
 
-    leadId: joi.string().custom(this.dbId),
+    id: joi.string().custom(this.dbId),
   };
 }

@@ -1,4 +1,3 @@
-import { Request } from "express";
 import { leadRepository } from "../../../db/repositories";
 import { GuardActivator } from "../../decorators";
 import { IRequest } from "../../types/IRequest.interface";

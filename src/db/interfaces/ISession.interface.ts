@@ -1,3 +1,5 @@
-import { IDoc } from "../types";
+import { IDoc, TDB_ID } from "../types";
 
-export interface ISession extends IDoc {}
+export interface ISession extends IDoc {
+  clientId: TDB_ID;
+}
