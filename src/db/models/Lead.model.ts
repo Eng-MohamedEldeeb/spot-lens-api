@@ -1,8 +1,8 @@
 import { model, models, Schema } from "mongoose";
-import { ILead } from "./interfaces";
-import { ClientType, LeadStatus } from "./interfaces/enums";
+import { ILead } from "../interfaces";
+import { ClientType, LeadStatus } from "../interfaces/enums";
 import emailService from "../../utils/email/email.service";
-import { EmailSchema } from "../../utils/email/schemas/emali.schemas";
+import { EmailSchema } from "../../utils/email/schemas/email.schemas";
 
 export class Lead {
   private static readonly schema = new Schema<ILead>(
@@ -43,6 +43,7 @@ export class Lead {
     });
     return this.schema;
   };
+
   public static readonly Model =
     models[this.name] ?? model(this.name, this.schemaFactory());
 }

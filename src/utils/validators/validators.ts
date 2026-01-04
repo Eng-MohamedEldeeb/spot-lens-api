@@ -1,7 +1,13 @@
 import joi from "joi";
-import { ClientType, LeadStatus } from "../../db/models/interfaces/enums";
+import { ClientType, LeadStatus } from "../../db/interfaces/enums";
+import { Types } from "mongoose";
 
 export abstract class Validators {
+  private readonly dbId = (v: string, helpers: joi.CustomHelpers) => {
+    if (!Types.ObjectId.isValid(v)) return helpers.error("in-valid id");
+    return v;
+  };
+
   protected readonly generalFields = {
     clientName: joi.string().messages({
       "string.empty": "clientName can't be empty",
@@ -21,5 +27,7 @@ export abstract class Validators {
     }),
     status: joi.valid(LeadStatus).default(LeadStatus.NEW),
     notes: joi.string().optional().empty(""),
+
+    leadId: joi.string().custom(this.dbId),
   };
 }

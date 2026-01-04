@@ -1,4 +1,4 @@
-import { ILeadInputs } from "../../../db/models/interfaces";
+import { ILeadInputs } from "../../../db/interfaces";
 
 export class EmailSchema {
   public static readonly confirmLead = ({

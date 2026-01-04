@@ -10,6 +10,8 @@ import {
   Types,
 } from "mongoose";
 
+export type TDB_ID = Types.ObjectId;
+
 export type TDataBaseDocument<T> = DeepPartial<
   ApplyBasicCreateCasting<Require_id<T>>
 >;
@@ -22,14 +24,14 @@ export type IFindOne<T> = {
 };
 
 export type IFindById<T> = {
-  _id: Types.ObjectId;
+  _id: TDB_ID | string;
   projection?: ProjectionFields<T>;
   options?: QueryOptions<T>;
   populate?: PopulateOptions | PopulateOption;
 };
 
 export interface IDoc {
-  _id?: Types.ObjectId;
+  _id?: TDB_ID;
   createdAt?: Date;
   updatedAt?: Date;
 }

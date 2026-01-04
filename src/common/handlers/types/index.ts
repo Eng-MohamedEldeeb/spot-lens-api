@@ -2,7 +2,7 @@ export interface ISuccessResponse<T> {
   msg: string;
   success?: true;
   status: number | 200;
-  data: T;
+  data?: T;
 }
 
 export interface IErrorResponse<T> {

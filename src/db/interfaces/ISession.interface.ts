@@ -1,3 +1,3 @@
-import { IDoc } from "../../types";
+import { IDoc } from "../types";
 
 export interface ISession extends IDoc {}

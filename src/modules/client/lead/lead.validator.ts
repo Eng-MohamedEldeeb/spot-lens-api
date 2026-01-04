@@ -1,10 +1,10 @@
 import joi from "joi";
-import { IBook } from "./lead.dto";
-import { Validators } from "../../utils/validators/validators";
+import { IRequestLead } from "./lead.dto";
+import { Validators } from "../../../utils/validators/validators";
 
 class LeadValidator extends Validators {
-  public readonly book = {
-    body: joi.object<IBook>().keys({
+  public readonly requestLead = {
+    body: joi.object<IRequestLead>().keys({
       clientName: this.generalFields.clientName.required(),
       companyName: this.generalFields.companyName.required(),
       email: this.generalFields.email.required(),

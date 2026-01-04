@@ -1,4 +1,4 @@
-import { IDoc } from "../../types";
+import { IDoc } from "../types";
 import { ClientType, LeadStatus } from "./enums";
 
 export interface ILeadInputs {

@@ -1,5 +1,5 @@
 import express from "express";
-import { bootstrap } from "./modules/app.module";
+import { bootstrap } from "./app.module";
 
 const port: number | string = process.env.PORT ?? 3000;
 

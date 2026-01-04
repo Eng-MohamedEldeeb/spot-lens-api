@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 
-export class AsyncHandler {
+class AsyncHandler {
   public static readonly handle = (fn: Function) => {
     return async (req: Request, res: Response, next: NextFunction) => {
       try {
@@ -11,3 +11,4 @@ export class AsyncHandler {
     };
   };
 }
+export default AsyncHandler;

@@ -15,7 +15,7 @@ class ResponseHandler {
     return next({ status, success, msg, error });
   };
   public readonly globalError = (
-    error: { status: number | 400; msg: string; success: false; error: any },
+    error: { status: number | 400; msg: string; success: false; error?: any },
     req: Request,
     res: Response,
     next: NextFunction,
