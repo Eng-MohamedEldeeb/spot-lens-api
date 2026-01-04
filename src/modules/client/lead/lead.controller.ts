@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
-import leadService, { LeadService } from "./lead.service";
+import leadService from "./lead.service";
 import { IRequestLead } from "./lead.dto";
-import { AsyncHandler } from "../../../common/decorators/async.handler.decorator";
+import { AsyncHandler } from "../../../common/decorators";
 import responseHandler from "../../../common/handlers/response.handler";
 
 class LeadController {
-  private readonly leadService: LeadService = leadService;
+  private readonly leadService = leadService;
 
   public readonly requestLead = AsyncHandler.handle(
     async (req: Request, res: Response) => {

@@ -1,7 +1,7 @@
 import { Express, json } from "express";
 import { DataBaseService } from "./db/db.service";
 
-import { adminModule, clientModule, dashboardModule } from "./modules";
+import { clientModule, dashboardModule } from "./modules";
 
 import responseHandler from "./common/handlers/response.handler";
 
@@ -10,8 +10,7 @@ export const bootstrap = async (app: Express) => {
 
   app.use(json());
 
-  app.use("/api/v1/admin", adminModule);
-  app.use("/api/v1/client", clientModule);
+  app.use("/api/v1/clients", clientModule);
   app.use("/api/v1/dashboard", dashboardModule);
 
   app.use(/(.*)/, responseHandler.unknownUrl);

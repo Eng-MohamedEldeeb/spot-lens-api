@@ -1,5 +1,5 @@
 export interface ISuccessResponse<T> {
-  msg: string;
+  msg?: string;
   success?: true;
   status: number | 200;
   data?: T;

@@ -3,6 +3,6 @@ import leadModule from "./lead/lead.module";
 
 const router: Router = Router();
 
-router.use("/lead", leadModule);
+router.use("/leads", leadModule);
 
 export default router;

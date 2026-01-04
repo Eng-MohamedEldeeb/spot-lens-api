@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { AsyncHandler } from "../../../common/decorators/async.handler.decorator";
 import responseHandler from "../../../common/handlers/response.handler";
+import { AsyncHandler } from "../../../common/decorators";
 
 class PhotoController {
   public readonly requestLead = AsyncHandler.handle(

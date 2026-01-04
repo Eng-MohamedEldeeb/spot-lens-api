@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import { AsyncHandler } from "../../../common/decorators/async.handler.decorator";
 import responseHandler from "../../../common/handlers/response.handler";
+import { AsyncHandler } from "../../../common/decorators";
 
-class GalleryController {
+class SessionController {
   public readonly requestLead = AsyncHandler.handle(
     async (req: Request, res: Response) => {
       return responseHandler.success(res, {
@@ -13,4 +13,4 @@ class GalleryController {
   );
 }
 
-export default new GalleryController();
+export default new SessionController();
