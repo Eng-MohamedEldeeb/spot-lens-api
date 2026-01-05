@@ -15,17 +15,14 @@ class ValidatorMiddleware {
         });
 
         if (error) {
-          validationError = {
-            key,
-            errors: error.details.map(e => ({
-              message: e.message,
-              // type: e.type,
-            })),
-          };
-
           return next({
             msg: "validation error",
-            details: validationError,
+            key,
+            // errors: error.details.map(e => e.message),
+            errors: error.details.map(e => ({
+              message: e.message,
+              type: e.type,
+            })),
             status: 400,
           });
         }
